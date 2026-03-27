@@ -52,6 +52,21 @@ The extension will:
 - Convert temperature to Celsius if your station uses Fahrenheit
 - Upload to Temperatur.nu for each new archive record
 
+Temperature Conversion:
+
+The extension automatically detects your weather station's unit system and converts 
+the temperature to Celsius as required by Temperatur.nu:
+
+- If your station uses US units (Fahrenheit): (°F - 32) × 5/9 = °C
+- If your station uses metric units (Celsius): No conversion needed
+- Temperature is rounded to 1 decimal place
+
+Example conversions:
+- 32°F → 0°C
+- 68°F → 20°C
+- 72.5°F → 22.5°C
+- 212°F → 100°C
+
 Troubleshooting:
 
 1) Check weewx logs for errors:
