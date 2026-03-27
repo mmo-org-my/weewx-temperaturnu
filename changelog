@@ -1,25 +1,7 @@
-0.8 11feb2026
-* Ported to Windy API v2
-
-0.7 08may2020
-* Ported to WeeWX V4 logging facility. -tk
-
-0.6 09jan2020
-* deal with None for observation readings
-
-0.5 20apr2019
-* If debug >= 2, post urls and JSON to the log
-* If available, use the weewx v4 log api.
-* Ran through PyCharm code inspection
-
-0.4 23apr2019
-* station id is necessary only for multiple stations, and is an integer
-
-0.3 18apr2019
-* Windy has fixed POSTS, so use them exclusively
-
-0.2 18apr2019
-* workaround windy bug - they seem to accept imperial units but not metric
-
-0.1 16apr2019
-* initial release
+0.1 27mar2026
+* Initial release based on weewx-windy template
+* Supports Temperatur.nu API
+* Automatic temperature conversion from Fahrenheit to Celsius
+* Compatible with weewx V3.8.0 and later
+* Support for both weewx V4 (wee_extension) and V5 (weectl) installers
+* Based on weewx-windy by Matthew Wall (modified by Jacques Terrettaz)
