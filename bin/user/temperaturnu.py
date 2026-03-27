@@ -25,10 +25,11 @@ except ImportError:
     from queue import Queue
 
 try:
-    from urllib import urlencode
+    from urllib import urlencode, urlopen
 except ImportError:
     # noinspection PyCompatibility
     from urllib.parse import urlencode
+    from urllib.request import urlopen
 
 import sys
 import time
@@ -213,15 +214,18 @@ class TemperaturNuThread(weewx.restx.RESTThread):
             logerr("Error processing record: %s" % str(e))
 
     def post_request(self, url, record, manager):
-        """Make the HTTP GET request to Temperatur.nu"""
-        import requests
-        
+        """Make the HTTP GET request to Temperatur.nu using only standard library"""
         try:
-            response = requests.get(url, timeout=self.timeout)
-            if response.status_code == 200:
+            # Use urlopen from standard library (no external dependencies)
+            response = urlopen(url, timeout=self.timeout)
+            response_code = response.getcode()
+            
+            if response_code == 200:
                 loginf("Successfully posted to Temperatur.nu")
             else:
-                logerr("Temperatur.nu returned status code %d: %s" % (response.status_code, response.text))
+                logerr("Temperatur.nu returned status code %d" % response_code)
+            
+            response.close()
         except Exception as e:
             logerr("Error posting to Temperatur.nu: %s" % str(e))
 
