@@ -138,7 +138,7 @@ class TemperaturNuThread(weewx.restx.RESTThread):
         self.skip_upload = to_bool(skip_upload)
 
     def format_url(self, record):
-        """Build the URL for POST to temperatur.nu
+        """Build the URL for GET request to temperatur.nu
         
         Temperatur.nu expects temperature in Celsius.
         The format is: https://www.temperatur.nu/rapportera.php?hash=[APIKEY]&t=[TEMPERATURE IN °C]
