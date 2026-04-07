@@ -1,4 +1,4 @@
-0.1 30mar2026
+0.1 30 March 2026
 * Initial release based on weewx-windy template
 * Supports Temperatur.nu API
 * Automatic temperature conversion to Celsius using weewx.units.to_METRICWX()
